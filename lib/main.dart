@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:movies/data/core/api_client.dart';
+import 'package:movies/data/data_resources/movie_remote_data_source.dart';
+import 'package:movies/data/repository/movie_repository_impl.dart';
+import 'package:movies/domain/repositories/movies_repository.dart';
 
 void main() {
+  //ApiClient passed as input parameter for thr constructor
+  ApiClient apiClient = ApiClient(Client());
+  MovieRemoteDataSource dataSource = MovieRemoteDataSourceImpl(apiClient);
+  MovieRepository movieRepository = MovieRepositoryImpl(dataSource);
+  movieRepository.getTrending();
   runApp(const MyApp());
 }
 
