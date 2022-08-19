@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:movies/domain/entities/movie_entity.dart';
-import 'package:movies/domain/entities/no_params.dart';
 import 'package:movies/domain/repositories/movies_repository.dart';
 import 'package:movies/domain/usecases/usecase.dart';
 
 import '../entities/app_error.dart';
+import '../entities/no_params.dart';
 
 class GetTrending extends UseCase<List<MovieEntity>, NoParams> {
   final MovieRepository repository;
